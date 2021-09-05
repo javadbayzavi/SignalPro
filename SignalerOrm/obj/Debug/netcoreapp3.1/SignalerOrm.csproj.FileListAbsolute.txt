@@ -1,0 +1,10 @@
+E:\Signaler\SignalerOrm\bin\Debug\netcoreapp3.1\Signaler.Data.deps.json
+E:\Signaler\SignalerOrm\bin\Debug\netcoreapp3.1\Signaler.Data.dll
+E:\Signaler\SignalerOrm\bin\Debug\netcoreapp3.1\Signaler.Data.pdb
+E:\Signaler\SignalerOrm\obj\Debug\netcoreapp3.1\SignalerOrm.csproj.AssemblyReference.cache
+E:\Signaler\SignalerOrm\obj\Debug\netcoreapp3.1\SignalerOrm.GeneratedMSBuildEditorConfig.editorconfig
+E:\Signaler\SignalerOrm\obj\Debug\netcoreapp3.1\SignalerOrm.AssemblyInfoInputs.cache
+E:\Signaler\SignalerOrm\obj\Debug\netcoreapp3.1\SignalerOrm.AssemblyInfo.cs
+E:\Signaler\SignalerOrm\obj\Debug\netcoreapp3.1\SignalerOrm.csproj.CoreCompileInputs.cache
+E:\Signaler\SignalerOrm\obj\Debug\netcoreapp3.1\Signaler.Data.dll
+E:\Signaler\SignalerOrm\obj\Debug\netcoreapp3.1\Signaler.Data.pdb
