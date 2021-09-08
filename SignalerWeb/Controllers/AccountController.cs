@@ -1,6 +1,5 @@
 ﻿using Signaler.Library.Core;
 using Signaler.Library.identity;
-using Signaler.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -9,10 +8,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Signaler.Data.Models.identity;
 
 namespace Signaler.Controllers
 {
-    public class AccountController : BaseController
+    public class AccountController : BaseController<>
     {
         public readonly UserManager<IdentityUser> _userManager;
         public readonly SignInManager<IdentityUser> _signInManager;

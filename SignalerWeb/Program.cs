@@ -48,7 +48,6 @@ namespace Signaler
             Host.CreateDefaultBuilder(args)
             .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    //webBuilder.UseIISIntegration();
                     webBuilder.UseStartup<Startup>();
                 });
     }

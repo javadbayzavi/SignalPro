@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SignalerOrm\SignalerOrm.csproj" />
+    <ProjectReference Include="..\SignalerService\SignalerService.csproj" />
   </ItemGroup>
 
 </Project>

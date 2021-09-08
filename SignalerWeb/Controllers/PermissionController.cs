@@ -1,6 +1,6 @@
 ﻿using Signaler.Library.identity;
 using Signaler.Library.identity.helper;
-using Signaler.Models;
+using Signaler.Data.Models.identity;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Signaler.Data.Core;
+using Signaler.Services.Core;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +32,10 @@ namespace SingalerAPI
             services.AddAuthentication(AzureADDefaults.BearerAuthenticationScheme)
                 .AddAzureADBearer(options => Configuration.Bind("AzureAd", options));
             services.AddControllers();
+
+            //Inject Data Services to the requested
+            services.AddScoped<IService<BaseEntity>, Service<BaseEntity>>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

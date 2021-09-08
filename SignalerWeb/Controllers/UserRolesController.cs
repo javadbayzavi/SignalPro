@@ -1,5 +1,4 @@
 ﻿using Signaler.Library.identity.Seeds;
-using Signaler.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -7,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Signaler.Data.Models.identity;
 
 namespace Signaler.Controllers
 {

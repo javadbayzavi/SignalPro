@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Signaler.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -14,6 +13,10 @@ using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using Signaler.Library.identity.Permission;
 using Microsoft.AspNetCore.Identity;
+using Signaler.Data.Contexts;
+using Signaler.Data.Core;
+using Signaler.Services.Core;
+using Signaler.Data.Repositories;
 
 namespace Signaler
 {
@@ -50,6 +53,11 @@ namespace Signaler
                     .AddEntityFrameworkStores<ApplicationContext>()
                     //.AddDefaultUI()
                     .AddDefaultTokenProviders();
+
+            //Inject Data Services to the requested
+            //services.AddScoped<IService<BaseEntity>, Service<BaseEntity>>();
+            services.AddScoped<IService<BaseEntity>>(srv => new Service<BaseEntity>(srv.GetRequiredService<IRepository<BaseEntity>>()));
+
 
             services.AddMvc();
             services.AddControllersWithViews();
