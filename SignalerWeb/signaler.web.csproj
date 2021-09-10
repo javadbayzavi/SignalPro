@@ -1935,11 +1935,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Library\" />
     <Folder Include="wwwroot\temp\scenarios\" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SignalerService\SignalerService.csproj" />
+    <ProjectReference Include="..\SingalerLibrary\SingalerLibrary.csproj" />
   </ItemGroup>
 
 </Project>

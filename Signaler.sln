@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SingalerAPI", "SingalerAPI\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalerService", "SignalerService\SignalerService.csproj", "{824FFDB6-B537-4913-BD86-9DD7A1AFE620}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingalerLibrary", "SingalerLibrary\SingalerLibrary.csproj", "{BABDBDD9-3E99-4AF3-9945-E0BA7487BB97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{824FFDB6-B537-4913-BD86-9DD7A1AFE620}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{824FFDB6-B537-4913-BD86-9DD7A1AFE620}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{824FFDB6-B537-4913-BD86-9DD7A1AFE620}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BABDBDD9-3E99-4AF3-9945-E0BA7487BB97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BABDBDD9-3E99-4AF3-9945-E0BA7487BB97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BABDBDD9-3E99-4AF3-9945-E0BA7487BB97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BABDBDD9-3E99-4AF3-9945-E0BA7487BB97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
