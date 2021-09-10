@@ -14,9 +14,7 @@ using Microsoft.AspNetCore.Authorization;
 using Signaler.Library.identity.Permission;
 using Microsoft.AspNetCore.Identity;
 using Signaler.Data.Contexts;
-using Signaler.Data.Core;
-using Signaler.Services.Core;
-using Signaler.Data.Repositories;
+using Signaler.Library.Core.Dynamics;
 
 namespace Signaler
 {
@@ -30,6 +28,9 @@ namespace Signaler
         {
 
             services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>();
+            
+
+
             services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
             services.AddDbContext<ApplicationContext>(options => options
                 .UseSqlServer(
@@ -51,15 +52,11 @@ namespace Signaler
 
             })
                     .AddEntityFrameworkStores<ApplicationContext>()
-                    //.AddDefaultUI()
                     .AddDefaultTokenProviders();
 
-            //Inject Data Services to the requested
-            //services.AddScoped<IService<BaseEntity>, Service<BaseEntity>>();
-            services.AddScoped<IService<BaseEntity>>(srv => new Service<BaseEntity>(srv.GetRequiredService<IRepository<BaseEntity>>()));
+            //Custom Application Configuration
+            services.DecorateApplicationWithDefaultConfiguration(Configuration);
 
-
-            services.AddMvc();
             services.AddControllersWithViews();
             services.AddSession();
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();

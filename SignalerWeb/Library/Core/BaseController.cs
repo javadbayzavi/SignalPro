@@ -12,10 +12,12 @@ using Signaler.Data.Core;
 
 namespace Signaler.Library.Core
 {
-    public abstract class BaseController<T> : Controller where T: BaseEntity
+    //Base controller take the default business request (for static parts of the application)
+    public abstract class BaseController : Controller
     {
+        private signalContext _dbproxy;
+        private emergncyDbContext _dbemergencyproxy;
         protected readonly IHttpContextAccessor _httpContextAccessor;
-        protected readonly IService<T> _serviceProvider;
         protected ISession _session => _httpContextAccessor.HttpContext.Session;
 
 
@@ -25,15 +27,6 @@ namespace Signaler.Library.Core
             this._dbproxy = new signalContext();
             this._dbemergencyproxy = new emergncyDbContext();
         }
-        public BaseController(IHttpContextAccessor httpContextAccessor, IService<T> service)
-        {
-            this._serviceProvider = service;
-            _httpContextAccessor = httpContextAccessor;
-            this._dbproxy = new signalContext();
-            this._dbemergencyproxy = new emergncyDbContext();
-        }
-
-        private signalContext _dbproxy;
         public signalContext ormProxy
         {
             get
@@ -42,7 +35,6 @@ namespace Signaler.Library.Core
             }
         }
 
-        private emergncyDbContext _dbemergencyproxy;
         public emergncyDbContext ormEmergencyProxy
         {
             get
@@ -51,6 +43,5 @@ namespace Signaler.Library.Core
             }
         }
         public abstract void setPageTitle(string actionRequester);
-
     }
 }

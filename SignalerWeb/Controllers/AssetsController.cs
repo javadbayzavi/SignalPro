@@ -25,7 +25,7 @@ namespace Signaler.Controllers
         }
 
         // GET: /<controller>/
-        public IActionResult Index()
+        public override IActionResult Index()
         {
             this.setPageTitle("Delete");
 
@@ -55,6 +55,26 @@ namespace Signaler.Controllers
             }
 
             ViewBag.Title = _pageTitle;
+        }
+
+        public override IActionResult Create(asset model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override IActionResult Update(asset model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override IActionResult View(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override IActionResult Delete(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -12,7 +12,7 @@ using Signaler.Data.Models.identity;
 
 namespace Signaler.Controllers
 {
-    public class AccountController : BaseController<>
+    public class AccountController : BaseController
     {
         public readonly UserManager<IdentityUser> _userManager;
         public readonly SignInManager<IdentityUser> _signInManager;
