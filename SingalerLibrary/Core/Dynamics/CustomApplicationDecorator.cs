@@ -4,9 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
-using Signaler.Services.Core;
-using Signaler.Data.Core;
-using Signaler.Data.Repositories;
+using Signaler.Library.Data;
+using Signaler.Library.Repositories;
+using Signaler.Library.Services.Core;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+
 
 namespace Signaler.Library.Core.Dynamics
 {

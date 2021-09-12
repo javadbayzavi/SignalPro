@@ -3294,16 +3294,6 @@
         "runtime": {
           "bin/placeholder/SignalerService.dll": {}
         }
-      },
-      "SingalerLibrary/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.1",
-        "compile": {
-          "bin/placeholder/SingalerLibrary.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/SingalerLibrary.dll": {}
-        }
       }
     }
   },
@@ -10263,11 +10253,6 @@
       "type": "project",
       "path": "../SignalerService/SignalerService.csproj",
       "msbuildProject": "../SignalerService/SignalerService.csproj"
-    },
-    "SingalerLibrary/1.0.0": {
-      "type": "project",
-      "path": "../SingalerLibrary/SingalerLibrary.csproj",
-      "msbuildProject": "../SingalerLibrary/SingalerLibrary.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -10283,7 +10268,6 @@
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.9",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.1.5",
       "SignalerService >= 1.0.0",
-      "SingalerLibrary >= 1.0.0",
       "System.Management >= 5.0.0"
     ]
   },
@@ -10316,9 +10300,6 @@
           "projectReferences": {
             "E:\\SignalPro\\SignalerService\\SignalerService.csproj": {
               "projectPath": "E:\\SignalPro\\SignalerService\\SignalerService.csproj"
-            },
-            "E:\\SignalPro\\SingalerLibrary\\SingalerLibrary.csproj": {
-              "projectPath": "E:\\SignalPro\\SingalerLibrary\\SingalerLibrary.csproj"
             }
           }
         }

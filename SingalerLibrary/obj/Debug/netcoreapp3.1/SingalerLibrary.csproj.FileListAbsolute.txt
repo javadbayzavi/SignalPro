@@ -1,0 +1,10 @@
+E:\SignalPro\SingalerLibrary\bin\Debug\netcoreapp3.1\SingalerLibrary.deps.json
+E:\SignalPro\SingalerLibrary\bin\Debug\netcoreapp3.1\SingalerLibrary.dll
+E:\SignalPro\SingalerLibrary\bin\Debug\netcoreapp3.1\SingalerLibrary.pdb
+E:\SignalPro\SingalerLibrary\obj\Debug\netcoreapp3.1\SingalerLibrary.csproj.AssemblyReference.cache
+E:\SignalPro\SingalerLibrary\obj\Debug\netcoreapp3.1\SingalerLibrary.GeneratedMSBuildEditorConfig.editorconfig
+E:\SignalPro\SingalerLibrary\obj\Debug\netcoreapp3.1\SingalerLibrary.AssemblyInfoInputs.cache
+E:\SignalPro\SingalerLibrary\obj\Debug\netcoreapp3.1\SingalerLibrary.AssemblyInfo.cs
+E:\SignalPro\SingalerLibrary\obj\Debug\netcoreapp3.1\SingalerLibrary.csproj.CoreCompileInputs.cache
+E:\SignalPro\SingalerLibrary\obj\Debug\netcoreapp3.1\SingalerLibrary.dll
+E:\SignalPro\SingalerLibrary\obj\Debug\netcoreapp3.1\SingalerLibrary.pdb

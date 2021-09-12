@@ -3,8 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-using Signaler.Data.Repositories;
-using Signaler.Services.Core;
+using Signaler.Library.Data.Repositories;
+using Signaler.Library.Services;
 
 namespace Signaler.Services.assets
 {

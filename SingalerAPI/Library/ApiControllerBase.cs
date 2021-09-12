@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Signaler.Data.Contexts;
-using Signaler.Data.Core;
+using Signaler.Library.Data.Core;
 using Signaler.Data.Models;
-using Signaler.Services.Core;
+using Signaler.Library.Services;
 
 namespace GenericCrudApi.Controllers
 {

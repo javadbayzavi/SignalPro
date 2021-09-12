@@ -1,4 +1,4 @@
-﻿using Signaler.Data.Core;
+﻿using Signaler.Library.Data.Core;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

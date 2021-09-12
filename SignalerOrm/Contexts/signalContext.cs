@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-//using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Signaler.Data.Core;
+using Signaler.Library.Data.Core;
 
 namespace Signaler.Data.Contexts
 {
