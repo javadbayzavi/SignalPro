@@ -6,12 +6,12 @@ using System.Text;
 
 namespace Signaler.Library.Data.Repositories
 {
-    public interface IRepository<T> where T : BaseEntity
+    public interface IRepository<T_Entity> where T_Entity : BaseEntity
     {
-        T GetById(object id);
-        void Insert(T entity);
-        void Update(T entity);
-        void Delete(T entity);
-        IQueryable<T> Table { get; }
+        T_Entity GetById(object id);
+        T_Entity Insert(T_Entity entity);
+        T_Entity Update(T_Entity entity);
+        bool Delete(T_Entity entity);
+        IQueryable<T_Entity> Table { get; }
     }
 }

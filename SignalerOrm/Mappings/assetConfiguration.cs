@@ -7,10 +7,7 @@ using System.Text;
 
 namespace Signaler.Data.Mappings
 {
-    class assetConfiguration
-    {
-    }
-    public class OrderConfiguration : IEntityTypeConfiguration<asset>
+    public class assetConfiguration : IEntityTypeConfiguration<asset>
     {
         public void Configure(EntityTypeBuilder<asset> builder)
         {

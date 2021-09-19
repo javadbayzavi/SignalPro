@@ -21,6 +21,9 @@
 
   <ItemGroup>
     <PackageReference Include="Annytab.Stemmer" Version="1.2.4" />
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Collection" Version="7.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="EAGetMail" Version="5.2.2.2" />
     <PackageReference Include="HtmlAgilityPack" Version="1.11.36" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />

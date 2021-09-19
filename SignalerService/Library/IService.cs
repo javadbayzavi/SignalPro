@@ -1,14 +1,17 @@
-﻿using Signaler.Library.Data.Core;
-using Signaler.Data.Models.assets;
-using Signaler.Library.Data.Repositories;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Signaler.Services.Library;
 
 namespace Signaler.Library.Services
 {
-    public interface IService<T> where T: BaseEntity
+    public interface IService<ServiceModel> where ServiceModel: ServiceModelBase
     {
+        IQueryable<ServiceModel> GetItems();
+        ServiceModel GetItem(long id);
+        bool Insert(ServiceModel serviceModel);
+        bool Update(ServiceModel serviceModel);
+        bool Delete(ServiceModel serviceModel);
     }
 }

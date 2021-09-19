@@ -7,22 +7,22 @@ using System.Linq;
 
 namespace Signaler.Library.Data.Repositories
 {
-    public class Repository<T> : IRepository<T> where T : BaseEntity
+    public class Repository<T_Entity> : IRepository<T_Entity> where T_Entity : BaseEntity
     {
         private readonly IDbContext _context;
-        private DbSet<T> _entities;
+        private DbSet<T_Entity> _entities;
 
         public Repository(IDbContext context)
         {
             this._context = context;
         }
 
-        public T GetById(object id)
+        public T_Entity GetById(object id)
         {
             return this.Entities.Find(id);
         }
 
-        public void Insert(T entity)
+        public T_Entity Insert(T_Entity entity)
         {
             try
             {
@@ -32,6 +32,7 @@ namespace Signaler.Library.Data.Repositories
                 }
                 this.Entities.Add(entity);
                 this._context.SaveChanges();
+                return entity;
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -50,7 +51,7 @@ namespace Signaler.Library.Data.Repositories
             }
         }
 
-        public void Update(T entity)
+        public T_Entity Update(T_Entity entity)
         {
             try
             {
@@ -59,6 +60,7 @@ namespace Signaler.Library.Data.Repositories
                     throw new ArgumentNullException("entity");
                 }
                 this._context.SaveChanges();
+                return entity;
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -75,7 +77,7 @@ namespace Signaler.Library.Data.Repositories
             }
         }
 
-        public void Delete(T entity)
+        public bool Delete(T_Entity entity)
         {
             try
             {
@@ -85,6 +87,7 @@ namespace Signaler.Library.Data.Repositories
                 }
                 this.Entities.Remove(entity);
                 this._context.SaveChanges();
+                return true;
             }
             catch (DbEntityValidationException dbEx)
             {
@@ -102,7 +105,7 @@ namespace Signaler.Library.Data.Repositories
             }
         }
 
-        public virtual IQueryable<T> Table
+        public virtual IQueryable<T_Entity> Table
         {
             get
             {
@@ -110,13 +113,13 @@ namespace Signaler.Library.Data.Repositories
             }
         }
 
-        private DbSet<T> Entities
+        private DbSet<T_Entity> Entities
         {
             get
             {
                 if (_entities == null)
                 {
-                    _entities = _context.Set<T>();
+                    _entities = _context.Set<T_Entity>();
                 }
                 return _entities;
             }

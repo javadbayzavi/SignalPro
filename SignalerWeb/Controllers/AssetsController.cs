@@ -7,28 +7,24 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Signaler.Services.assets;
-using Signaler.Data.Models.assets;
+using Signaler.Services.Models.Assets;
+using Signaler.Models.Assets;
+using Signaler.Library.Services;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Signaler.Controllers
 {
-    public class AssetsController : BaseController<asset>
+    public class AssetsController : BaseController<assetViewModel>
     {
-        public AssetsController(IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
+        public AssetsController(assetService service, IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor, service)
         {
-        }
-
-        public AssetsController(IassetService service, IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor,service)
-        {
-
         }
 
         // GET: /<controller>/
         public override IActionResult Index()
         {
             this.setPageTitle("Delete");
-
             return View();
         }
 
@@ -57,22 +53,22 @@ namespace Signaler.Controllers
             ViewBag.Title = _pageTitle;
         }
 
-        public override IActionResult Create(asset model)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override IActionResult Update(asset model)
-        {
-            throw new NotImplementedException();
-        }
-
         public override IActionResult View(int id)
         {
             throw new NotImplementedException();
         }
 
         public override IActionResult Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override IActionResult Create(assetViewModel model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override IActionResult Update(assetViewModel model)
         {
             throw new NotImplementedException();
         }

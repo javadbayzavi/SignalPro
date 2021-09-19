@@ -192,3 +192,6 @@ E:\SignalPro\SignalerWeb\obj\Debug\netcoreapp3.1\signaler.web.csproj.CopyComplet
 E:\SignalPro\SignalerWeb\obj\Debug\netcoreapp3.1\SignalerWeb.dll
 E:\SignalPro\SignalerWeb\obj\Debug\netcoreapp3.1\SignalerWeb.pdb
 E:\SignalPro\SignalerWeb\obj\Debug\netcoreapp3.1\signaler.web.genruntimeconfig.cache
+E:\SignalPro\SignalerWeb\bin\Debug\netcoreapp3.1\AutoMapper.dll
+E:\SignalPro\SignalerWeb\bin\Debug\netcoreapp3.1\AutoMapper.Collection.dll
+E:\SignalPro\SignalerWeb\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

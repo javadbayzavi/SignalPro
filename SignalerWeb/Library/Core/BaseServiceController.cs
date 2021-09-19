@@ -8,29 +8,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Signaler.Library.Services;
+using Signaler.Services.Library;
 using Signaler.Library.Data.Core;
 
 namespace Signaler.Library.Core
 {
 
     //Base controller take the operational business request (for core business parts of the application)
-    public abstract class BaseController<T> : BaseController where T: BaseEntity
+    public abstract class BaseController<T_ServiceModel> : BaseController where T_ServiceModel: ServiceModelBase
     {
 
-        protected readonly IService<T> _serviceProvider;
+        //protected readonly IService<T_ServiceModel> _serviceProvider;
+        protected readonly Service<BaseEntity,T_ServiceModel> _serviceProvider;
 
 
         public BaseController(IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
         {
         }
-        public BaseController(IHttpContextAccessor httpContextAccessor, IService<T> service):base(httpContextAccessor)
+        public BaseController(IHttpContextAccessor httpContextAccessor, IService<T_ServiceModel> service):base(httpContextAccessor)
         {
             this._serviceProvider = service;
         }
 
         public abstract IActionResult Index();
-        public abstract IActionResult Create(T model);
-        public abstract IActionResult Update(T model);
+        public abstract IActionResult Create(T_ServiceModel model);
+        public abstract IActionResult Update(T_ServiceModel model);
         public abstract IActionResult View(int id);
         public abstract IActionResult Delete(int id);
     }

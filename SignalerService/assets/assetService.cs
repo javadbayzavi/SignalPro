@@ -5,38 +5,35 @@ using System.Text;
 using System.Linq;
 using Signaler.Library.Data.Repositories;
 using Signaler.Library.Services;
+using Signaler.Services.Models.Assets;
 
 namespace Signaler.Services.assets
 {
-    public class assetService : Service<asset>, IassetService
+    public class assetService : Service<asset, assetServiceModel>
     {
         public assetService(IRepository<asset> _repository) : base(_repository)
         {
-            this.repository = _repository;
+            this.Repository = _repository;
         }
-        public void DeleteAsset(asset asset)
+        
+        //Hook method to prepare service befor Delete operation
+        public override void PrepareForDelete()
         {
-            this.repository.Delete(asset);
-        }
-
-        public asset GetAsset(long id)
-        {
-            return this.repository.GetById(id);
         }
 
-        public IQueryable<asset> GetAssets()
+        //Hook method to prepare service befor Get operation
+        public override void PrepareForGet()
         {
-            return this.repository.Table;
         }
 
-        public void InsertAsset(asset asset)
+        //Hook method to prepare service befor Update operation
+        public override void PrepareForUpdate()
         {
-            this.repository.Insert(asset);
         }
 
-        public void UpdateAsset(asset asset)
+        //Hook method to prepare service befor Insert operation
+        public override void PrepareForInsert()
         {
-            this.repository.Update(asset);
         }
     }
 }
