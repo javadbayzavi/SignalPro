@@ -13,7 +13,7 @@ namespace Signaler.Library.Data.Core
     {
         public static IServiceCollection AddSignalEntites(this IServiceCollection services, IConfiguration configuration)
         {
-            var types = System.Reflection.Assembly.GetExecutingAssembly()
+            var types = typeof(BaseEntity).Assembly
                 .GetTypes()
                 .Where(item => item.GetInterfaces()
                 .Where(i => i.IsGenericType).Any(i => i.GetGenericTypeDefinition() == typeof(IRepository<>)) && !item.IsAbstract && !item.IsInterface)
@@ -21,8 +21,8 @@ namespace Signaler.Library.Data.Core
 
             foreach (var assignedTypes in types)
             {
-                var serviceType = assignedTypes.GetInterfaces().First(i => i.GetGenericTypeDefinition() == typeof(IRepository<>));
-                services.AddScoped(serviceType, assignedTypes);
+                var repoType = assignedTypes.GetInterfaces().First(i => i.GetGenericTypeDefinition() == typeof(IRepository<>));
+                services.AddScoped(repoType, assignedTypes);
             }
 
             return services;

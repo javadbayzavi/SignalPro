@@ -6,10 +6,13 @@ using System.Linq;
 using Signaler.Library.Data.Repositories;
 using Signaler.Library.Services;
 using Signaler.Services.Models.Assets;
+using Signaler.Services.Library;
 
 namespace Signaler.Services.assets
 {
-    public class assetService : Service<asset, assetServiceModel>
+    [ServiceTarget(ServiceTargetType.Business)]
+    [ServiceHost(ServiceHostType.Web)]
+    public class assetService<T_ServiceModel> : Service<asset, T_ServiceModel> where T_ServiceModel : assetServiceModel
     {
         public assetService(IRepository<asset> _repository) : base(_repository)
         {

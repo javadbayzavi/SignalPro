@@ -17,7 +17,7 @@ namespace Signaler.Controllers
 {
     public class AssetsController : BaseController<assetViewModel>
     {
-        public AssetsController(assetService service, IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor, service)
+        public AssetsController(assetService<assetViewModel> service, IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor, service)
         {
         }
 
@@ -60,7 +60,8 @@ namespace Signaler.Controllers
 
         public override IActionResult Delete(int id)
         {
-            throw new NotImplementedException();
+            //this._serviceProvider.Delete();
+            return View();
         }
 
         public override IActionResult Create(assetViewModel model)

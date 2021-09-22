@@ -9,7 +9,7 @@ using Signaler.Services.Library;
 
 namespace Signaler.Library.Services
 {
-    public abstract class Service<T_Entity, T_ServiceModel> : IService<T_ServiceModel> where T_Entity : BaseEntity where  T_ServiceModel : ServiceModelBase
+    public class Service<T_Entity, T_ServiceModel> : IService<T_ServiceModel>, IOperationPreparable where T_Entity : BaseEntity where  T_ServiceModel : ServiceModelBase
     {
         public IRepository< T_Entity> Repository { get; set; }
         protected IServiceOperationProxy<T_Entity, T_ServiceModel> executor { get; set; }
@@ -20,12 +20,19 @@ namespace Signaler.Library.Services
             this.executor = new ServiceProxyExecutor<T_Entity, T_ServiceModel>(this);
         }
 
-        public Service(IRepository<T_Entity> repo, IServiceOperationProxy<T_Entity, T_ServiceModel> _executor)
-        {
-            this.Repository = repo;
-            this.executor = _executor;
-        }
+        //public Service(IRepository<T_Entity> repo, IServiceOperationProxy<T_Entity, T_ServiceModel> _executor)
+        //{
+        //    this.Repository = repo;
+        //    this.executor = _executor;
+        //}
 
+        public IService<T_ServiceModel> ServiceProxy 
+        { 
+            get
+            {
+                return this;
+            }
+        }
 
         //Template method for Delete
         public bool Delete(T_ServiceModel serviceModel)
@@ -82,9 +89,9 @@ namespace Signaler.Library.Services
             }        
         }
 
-        public abstract void PrepareForDelete();
-        public abstract void PrepareForInsert();
-        public abstract void PrepareForUpdate();
-        public abstract void PrepareForGet();
+        public virtual void PrepareForDelete() { }
+        public virtual void PrepareForInsert() { }
+        public virtual void PrepareForUpdate() { }
+        public virtual void PrepareForGet() { }
     }
 }
