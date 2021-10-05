@@ -12,7 +12,8 @@ namespace Signaler.Services.assets
 {
     [ServiceTarget(ServiceTargetType.Business)]
     [ServiceHost(ServiceHostType.Web)]
-    public class assetService<T_ServiceModel> : Service<asset, T_ServiceModel> where T_ServiceModel : assetServiceModel
+    public class assetService : Service<asset, assetServiceModel>
+    //public class assetService<T_ServiceModel> : Service<asset, T_ServiceModel> where T_ServiceModel : assetServiceModel
     {
         public assetService(IRepository<asset> _repository) : base(_repository)
         {

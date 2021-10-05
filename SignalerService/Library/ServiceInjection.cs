@@ -23,8 +23,9 @@ namespace Signaler.Library.Services
 
             foreach (var assignedTypes in types)
             {
-                var serviceType = assignedTypes.GetInterfaces().First(i => i.GetGenericTypeDefinition() == typeof(IService<>));
-                services.AddScoped(serviceType, assignedTypes);
+                //var serviceType = assignedTypes.GetInterfaces().First(i => i.GetGenericTypeDefinition() == typeof(IService<>));
+               //services.AddScoped(serviceType, assignedTypes);
+                services.AddScoped(assignedTypes);
             }
 
             return services;

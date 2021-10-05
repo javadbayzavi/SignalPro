@@ -3,6 +3,7 @@ using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Reflection;
 using Microsoft.EntityFrameworkCore;
+using Signaler.Data.Models.assets;
 using Signaler.Library.Data.Core;
 
 namespace Signaler.Data.Contexts
@@ -50,6 +51,8 @@ namespace Signaler.Data.Contexts
 
             base.OnModelCreating(modelBuilder);
         }
+
+        public DbSet<asset> Assets { get; set; }
 
         public new DbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
         {

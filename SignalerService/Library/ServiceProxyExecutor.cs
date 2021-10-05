@@ -14,27 +14,39 @@ namespace Signaler.Services.Library
         public ServiceProxyExecutor(Service<T_Entity, T_ServiceModel> _service)
         {
             this.service = _service;
-            //this.Mapper = new Mapper(new C)
         }
 
+        //Template method for Delete
         public bool doDelete(ref T_ServiceModel entry)
         {
+            //Business related operation on data before delete
+            this.service.PrepareForDelete();            
+            
             //Mapping Process
             T_Entity _entity = this._doMapping(entry);
 
             return this.service.Repository.Delete(_entity);
         }
 
+        
+        //Template method for Update
         public T_Entity doUpdate(ref T_ServiceModel entry)
         {
+            //Business related operation on data before update
+            this.service.PrepareForUpdate();
+
             //Mapping Process
             T_Entity _entity = this._doMapping(entry);
 
             return this.service.Repository.Update(_entity);
         }
 
+        //Template method for Insert
         public T_Entity doInsert(ref T_ServiceModel entry)
         {
+            //Business related operation on data before insert
+            this.service.PrepareForInsert();
+
             //Mapping Process
             T_Entity _entity = this._doMapping(entry);
 
@@ -43,6 +55,9 @@ namespace Signaler.Services.Library
 
         public IQueryable<T_ServiceModel> doGet(long id)
         {
+            //Business related operation on data before Get
+            this.service.PrepareForGet();
+
             IQueryable<T_ServiceModel> items = (IQueryable<T_ServiceModel>) this.service.Repository.GetById(id);
 
             return items;

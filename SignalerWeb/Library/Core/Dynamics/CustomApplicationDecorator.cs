@@ -8,9 +8,6 @@ using Signaler.Library.Services;
 using Signaler.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
-using Signaler.Services.Library;
-using Signaler.Services.assets;
-using Signaler.Models.Assets;
 
 namespace Signaler.Library.Core.Dynamics
 {
@@ -64,17 +61,16 @@ namespace Signaler.Library.Core.Dynamics
                     opts => opts.CommandTimeout((int)TimeSpan.FromMinutes(30).TotalSeconds))
             );
 
+            services.AddScoped<IDbContext, signalContext>();
 
             //Inject Data Services to the requested
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             //services.AddSignalEntites(configuration);
 
             //Inject all signal services into the application service collection
-            //services.AddScoped(typeof(IService<>), typeof(Service<,>));
-            services.AddScoped(typeof(IService<assetViewModel>),typeof(assetService<assetViewModel>));
-            //services.AddSignalBusinessServices(configuration, ServiceTargetType.Business, ServiceHostType.Web);
+            //services.AddScoped(typeof(IService<assetViewModel>),typeof(assetService<assetViewModel>));
+            services.AddSignalBusinessServices(configuration, ServiceTargetType.Business, ServiceHostType.Web);
 
-            //services.AddScoped<IDbContext, signalContext>();
 
 
             //Configure MVC service to load generic types based on requested business action

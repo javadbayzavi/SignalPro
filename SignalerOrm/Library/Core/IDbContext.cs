@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Signaler.Library.Data.Core
 {
-    public interface IDbContext
+    public interface IDbContext : IDisposable
     {
         DbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity;
         int SaveChanges();

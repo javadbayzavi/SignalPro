@@ -6,17 +6,17 @@ using Signaler.Data.Contexts;
 using Signaler.Library.Data.Core;
 using Signaler.Data.Models;
 using Signaler.Library.Services;
+using Signaler.Services.Library;
 
 namespace GenericCrudApi.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ApiControllerBase<T> : ControllerBase where T : BaseEntity
+    public class ApiControllerBase<T_ServiceModelT> : ControllerBase where T_ServiceModelT : ServiceModelBase
     {
-        protected readonly signalContext _context;
-        protected readonly IService<T> _service;
+        protected readonly IService<T_ServiceModelT> _service;
 
-        public ApiControllerBase(IService<T> service)
+        public ApiControllerBase(IService<T_ServiceModelT> service)
         {
             this._service = service;
         }
@@ -29,7 +29,7 @@ namespace GenericCrudApi.Controllers
         [HttpGet]
         public virtual async Task<IActionResult> List()
         {
-            var entities = await _context.Set<T>().ToListAsync();
+            var entities = await _context.Set<T_ServiceModelT>().ToListAsync();
 
             return Ok(entities);
         }
@@ -37,7 +37,7 @@ namespace GenericCrudApi.Controllers
         [HttpGet("{id}")]
         public virtual async Task<IActionResult> Detail(long id)
         {
-            var entity = await _context.Set<T>().FindAsync(id);
+            var entity = await _context.Set<T_ServiceModelT>().FindAsync(id);
 
             if (entity == null)
                 return NotFound();
@@ -46,17 +46,17 @@ namespace GenericCrudApi.Controllers
         }
 
         [HttpPost]
-        public virtual async Task<IActionResult> Create(T entity)
+        public virtual async Task<IActionResult> Create(T_ServiceModelT entity)
         {
             entity.CreationDate = DateTime.Now;
-            await _context.Set<T>().AddAsync(entity);
+            await _context.Set<T_ServiceModelT>().AddAsync(entity);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("Detail", new { id = entity.Id }, entity);
         }
 
         [HttpPut("{id}")]
-        public virtual async Task<IActionResult> Update(long id, T entity)
+        public virtual async Task<IActionResult> Update(long id, T_ServiceModelT entity)
         {
             if (id != entity.Id)
                 return BadRequest();
@@ -74,12 +74,12 @@ namespace GenericCrudApi.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(long id)
         {
-            var entity = await _context.Set<T>().FindAsync(id);
+            var entity = await _context.Set<T_ServiceModelT>().FindAsync(id);
 
             if (entity == null)
                 return NotFound();
 
-            _context.Set<T>().Remove(entity);
+            _context.Set<T_ServiceModelT>().Remove(entity);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -87,7 +87,7 @@ namespace GenericCrudApi.Controllers
 
         private Task<bool> EntityExists(long id)
         {
-            return _context.Set<T>().AnyAsync(e => e.Id == id);
+            return _context.Set<T_ServiceModelT>().AnyAsync(e => e.Id == id);
         }
     }
 }

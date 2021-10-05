@@ -7,25 +7,27 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Signaler.Services.assets;
-using Signaler.Services.Models.Assets;
 using Signaler.Models.Assets;
 using Signaler.Library.Services;
+using Signaler.Services.Models.Assets;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace Signaler.Controllers
 {
-    public class AssetsController : BaseController<assetViewModel>
+    public class AssetsController : BaseController<assetServiceModel>
     {
-        public AssetsController(assetService<assetViewModel> service, IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor, service)
+        public AssetsController(assetService service, IHttpContextAccessor httpContextAccessor) : base(service.ServiceProxy,httpContextAccessor)
         {
         }
 
         // GET: /<controller>/
         public override IActionResult Index()
         {
-            this.setPageTitle("Delete");
+            this.setPageTitle("Index");
+            //this._serviceProvider.Delete()
             return View();
+            
         }
 
         [AllowAnonymous]
@@ -64,12 +66,12 @@ namespace Signaler.Controllers
             return View();
         }
 
-        public override IActionResult Create(assetViewModel model)
+        public override IActionResult Create(assetServiceModel model)
         {
             throw new NotImplementedException();
         }
 
-        public override IActionResult Update(assetViewModel model)
+        public override IActionResult Update(assetServiceModel model)
         {
             throw new NotImplementedException();
         }
