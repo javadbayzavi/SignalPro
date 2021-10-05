@@ -25,7 +25,9 @@ namespace Signaler.Controllers
         public override IActionResult Index()
         {
             this.setPageTitle("Index");
-            //this._serviceProvider.Delete()
+
+            var items = this._serviceProvider.GetItems();
+
             return View();
             
         }

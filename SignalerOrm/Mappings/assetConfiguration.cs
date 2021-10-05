@@ -13,6 +13,9 @@ namespace Signaler.Data.Mappings
         {
             builder.HasKey(o => o.Id);
             builder.Property(p => p.name).IsRequired(true);
+
+            //Set the source name for this entity
+            builder.ToTable("asset");
         }
     }
 }

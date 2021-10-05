@@ -57,10 +57,14 @@ namespace Signaler.Services.Library
         {
             //Business related operation on data before Get
             this.service.PrepareForGet();
+            if (id > 0)
+            {
+                IQueryable<T_ServiceModel> items = (IQueryable<T_ServiceModel>)this.service.Repository.GetById(id);
 
-            IQueryable<T_ServiceModel> items = (IQueryable<T_ServiceModel>) this.service.Repository.GetById(id);
-
-            return items;
+                return items;
+            }
+            else
+                return this._doReverseMapping(this.service.Repository.Table.ToList().AsQueryable());
         }
         
 
@@ -74,6 +78,18 @@ namespace Signaler.Services.Library
             this.Mapper = new Mapper(configuration);
 
             return (T_Entity)Mapper.Map(entry, typeof(T_ServiceModel), typeof(T_Entity));
+        }
+
+        private IQueryable<T_ServiceModel> _doReverseMapping(IQueryable<T_Entity> entry)
+        {
+            var configuration = new MapperConfiguration(cfg => {
+                cfg.AllowNullCollections = true;
+                cfg.CreateMap<T_Entity, T_ServiceModel>();
+            });
+
+            this.Mapper = new Mapper(configuration);
+
+            return (IQueryable<T_ServiceModel>)Mapper.Map(entry, typeof(T_Entity), typeof(T_ServiceModel));
         }
     }
 }

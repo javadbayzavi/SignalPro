@@ -11,7 +11,7 @@ namespace Signaler.Library.Data.Core
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        public DateTime CreationDate { get; set; }
-        public DateTime? ModificationDate { get; set; }
+        public long CreationDate { get; set; }
+        public long? ModificationDate { get; set; }
     }
 }

@@ -68,7 +68,6 @@ namespace Signaler.Library.Core.Dynamics
             //services.AddSignalEntites(configuration);
 
             //Inject all signal services into the application service collection
-            //services.AddScoped(typeof(IService<assetViewModel>),typeof(assetService<assetViewModel>));
             services.AddSignalBusinessServices(configuration, ServiceTargetType.Business, ServiceHostType.Web);
 
 

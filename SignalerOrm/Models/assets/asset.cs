@@ -18,10 +18,6 @@ namespace Signaler.Data.Models.assets
         [DataType(DataType.Text)] 
         public string symbol { get; set; }
 
-        [Required]
-        [DataType(DataType.DateTime)]
-        public DateTime createdDate { get; set; }
-
         public ICollection<exchangemarket> markets { get; set; }
         public ICollection<assetprice> prices { get; set; }
 
