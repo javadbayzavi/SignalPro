@@ -6,7 +6,7 @@ using Signaler.Services.Library;
 
 namespace Signaler.Library.Services
 {
-    public interface IService<ServiceModel> where ServiceModel: ServiceModelBase
+    public interface IService<ServiceModel> : IServable where ServiceModel: ServiceModelBase
     {
         IQueryable<ServiceModel> GetItems();
         ServiceModel GetItem(long id);

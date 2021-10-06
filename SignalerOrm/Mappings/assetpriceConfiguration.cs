@@ -7,14 +7,12 @@ using System.Text;
 
 namespace Signaler.Data.Mappings
 {
-    public class assetConfiguration : IEntityTypeConfiguration<asset>
+    public class assetpriceConfiguration : IEntityTypeConfiguration<assetprice>
     {
-        public void Configure(EntityTypeBuilder<asset> builder)
+        public void Configure(EntityTypeBuilder<assetprice> builder)
         {
-            builder.Property(p => p.name).IsRequired(true);
-
             //Set the source name for this entity
-            builder.ToTable("asset");
+            builder.ToTable("assetprice");
         }
     }
 }

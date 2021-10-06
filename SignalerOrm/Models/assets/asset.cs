@@ -18,7 +18,7 @@ namespace Signaler.Data.Models.assets
         [DataType(DataType.Text)] 
         public string symbol { get; set; }
 
-        public ICollection<exchangemarket> markets { get; set; }
+        public ICollection<assetmarket> markets { get; set; }
         public ICollection<assetprice> prices { get; set; }
 
     }

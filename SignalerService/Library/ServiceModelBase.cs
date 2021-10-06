@@ -6,6 +6,6 @@ namespace Signaler.Services.Library
 {
     public class ServiceModelBase
     {
-        public int Id { get; set; }
+        public long Id { get; set; }
     }
 }

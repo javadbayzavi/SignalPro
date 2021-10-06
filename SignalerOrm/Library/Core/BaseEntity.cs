@@ -9,7 +9,7 @@ namespace Signaler.Library.Data.Core
     public class BaseEntity
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public long Id { get; set; }
 
         public long CreationDate { get; set; }
         public long? ModificationDate { get; set; }

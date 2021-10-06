@@ -10,13 +10,13 @@ namespace Signaler.Data.Models.assets
     public class exchangemarket : BaseEntity
     {
         [ForeignKey("exchangeid")]
-        public exchage exchage { get; set; }
+        public exchange exchage { get; set; }
         [Required]
-        public int exchangeid { get; set; }
+        public long exchangeid { get; set; }
 
         [ForeignKey("marketid")]
         public market market { get; set; }
         [Required]
-        public int marketid { get; set; }
+        public long marketid { get; set; }
     }
 }

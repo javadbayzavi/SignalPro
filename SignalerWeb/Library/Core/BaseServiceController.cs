@@ -15,12 +15,14 @@ namespace Signaler.Library.Core
 {
 
     //Base controller take the operational business request (for core business parts of the application)
-    public abstract class BaseController<T_ServiceModel> : BaseController , ICRUDOperator<T_ServiceModel> where T_ServiceModel : ServiceModelBase
+    //public abstract class BaseController<T_Service> : BaseController where T_Service : IServable
+    public abstract class BaseController<T_ServiceModel> : BaseController, ICRUDOperator<T_ServiceModel> where T_ServiceModel : ServiceModelBase
     {
 
-        //protected readonly IService<T_ServiceModel> _serviceProvider;
+        //protected readonly T_Service _serviceProvider;
         protected readonly IService<T_ServiceModel> _serviceProvider;
 
+        //public BaseController(T_Service service, IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
         public BaseController(IService<T_ServiceModel> service, IHttpContextAccessor httpContextAccessor) : base(httpContextAccessor)
         {
             this._serviceProvider = service;

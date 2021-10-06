@@ -7,7 +7,7 @@ namespace Signaler.Services.Models.Assets
 {
     public class exchangeServiceModel : ServiceModelBase
     {
-        public string Name { get; set; }
+        public string name { get; set; }
         public string url { get; set; }
 
         //public ICollection<exchangemarket> markets { get; set; }

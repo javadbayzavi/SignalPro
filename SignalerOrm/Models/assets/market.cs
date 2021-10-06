@@ -12,7 +12,7 @@ namespace Signaler.Data.Models.assets
         [Required]
         public string name { get; set; }
 
-        public ICollection<asset> assets { get; set; }
+        public ICollection<assetmarket> assets { get; set; }
         public ICollection<exchangemarket> exchanges { get; set; }
     }
 }

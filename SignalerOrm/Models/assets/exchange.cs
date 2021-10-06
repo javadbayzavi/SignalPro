@@ -7,9 +7,9 @@ using System.Text;
 
 namespace Signaler.Data.Models.assets
 {
-    public class exchage : BaseEntity
+    public class exchange : BaseEntity
     {
-        public string Name { get; set; }
+        public string name { get; set; }
         public string url { get; set; }
 
         public ICollection<exchangemarket> markets { get; set; }

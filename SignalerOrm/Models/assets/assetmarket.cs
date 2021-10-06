@@ -13,11 +13,11 @@ namespace Signaler.Data.Models.assets
         [ForeignKey("assetid")]
         public asset asset { get; set; }
         [Required]
-        public int assetid { get; set; }
+        public long assetid { get; set; }
 
         [ForeignKey("marketid")]
         public market market { get; set; }
         [Required]
-        public int marketid { get; set; }
+        public long marketid { get; set; }
     }
 }

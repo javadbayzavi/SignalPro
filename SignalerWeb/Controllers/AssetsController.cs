@@ -15,6 +15,7 @@ using Signaler.Services.Models.Assets;
 
 namespace Signaler.Controllers
 {
+    //public class AssetsController : BaseController<assetService>
     public class AssetsController : BaseController<assetServiceModel>
     {
         public AssetsController(assetService service, IHttpContextAccessor httpContextAccessor) : base(service.ServiceProxy,httpContextAccessor)
