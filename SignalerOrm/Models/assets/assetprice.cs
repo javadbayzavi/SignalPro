@@ -15,9 +15,9 @@ namespace Signaler.Data.Models.assets
         [Required]
         public float price { get; set; }
 
-        [Required]
         [ForeignKey("timeslotid")]
-        public timeslot pricetype { get; set; }
+        public timeslot timeslot { get; set; }
+
         public long timeslotid { get; set; }
 
         public float openprice { get; set; }

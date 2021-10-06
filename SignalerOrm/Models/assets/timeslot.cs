@@ -11,6 +11,6 @@ namespace Signaler.Data.Models.assets
         [DataType(DataType.Text)]
         public string slotName { get; set; }
 
-        public ICollection<asset> assets { get; set; }
+        public ICollection<assetprice> assets { get; set; }
     }
 }
