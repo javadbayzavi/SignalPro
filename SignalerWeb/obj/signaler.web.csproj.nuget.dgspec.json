@@ -261,6 +261,10 @@
             "System.Management": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "Telegram.Bot": {
+              "target": "Package",
+              "version": "[16.0.2, )"
             }
           },
           "imports": [

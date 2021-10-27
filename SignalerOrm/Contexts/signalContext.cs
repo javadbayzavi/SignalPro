@@ -33,18 +33,18 @@ namespace Signaler.Data.Contexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            var typesToRegister = Assembly.GetExecutingAssembly().GetTypes()
-            .Where(type => !String.IsNullOrEmpty(type.Namespace))
-            .Where(type => type.BaseType != null && type.BaseType.IsGenericType && type.BaseType.GetGenericTypeDefinition() == typeof(IEntityTypeConfiguration<>));
+            //var typesToRegister = Assembly.GetExecutingAssembly().GetTypes()
+            //.Where(type => !String.IsNullOrEmpty(type.Namespace))
+            //.Where(type => type.BaseType != null && type.BaseType.IsGenericType && type.BaseType.GetGenericTypeDefinition() == typeof(IEntityTypeConfiguration<>));
 
-            foreach (var type in typesToRegister)
-            {
-                //Create Dynamically configuration object for each entity and inject modelbuilder to this configuration
-                dynamic configurationInstance = Activator.CreateInstance(type,modelBuilder);
+            //foreach (var type in typesToRegister)
+            //{
+            //    //Create Dynamically configuration object for each entity and inject modelbuilder to this configuration
+            //    dynamic configurationInstance = Activator.CreateInstance(type,modelBuilder);
 
-                //Apply all the configuration into the inejected model builder
-                //modelBuilder.ApplyConfiguration(configurationInstance);
-            }
+            //    //Apply all the configuration into the inejected model builder
+            //    //modelBuilder.ApplyConfiguration(configurationInstance);
+            //}
 
             //Apply all the configuration object for entities
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
@@ -52,7 +52,6 @@ namespace Signaler.Data.Contexts
             base.OnModelCreating(modelBuilder);
         }
 
-        public DbSet<asset> Assets { get; set; }
 
         public new DbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
         {

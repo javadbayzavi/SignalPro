@@ -39,5 +39,25 @@ namespace Signaler.Services.assets
         public override void PrepareForInsert()
         {
         }
+
+        //Hook method to prepare service befor Delete operation
+        public override void AfterDelete()
+        {
+        }
+
+        //Hook method to prepare service befor Get operation
+        public override void AfterGet()
+        {
+        }
+
+        //Hook method to prepare service befor Update operation
+        public override void AfterUpdate()
+        {
+        }
+
+        //Hook method to prepare service befor Insert operation
+        public override void AfterInsert()
+        {
+        }
     }
 }

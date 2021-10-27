@@ -18,8 +18,9 @@ namespace Signaler.Controllers
     //public class AssetsController : BaseController<assetService>
     public class AssetsController : BaseController<assetServiceModel>
     {
-        public AssetsController(assetService service, IHttpContextAccessor httpContextAccessor) : base(service.ServiceProxy,httpContextAccessor)
+        public AssetsController(assetService service, IHttpContextAccessor httpContextAccessor) : base(service.ServiceProxyInterface,httpContextAccessor)
         {
+            //this._serviceProvider = service;
         }
 
         // GET: /<controller>/
@@ -27,10 +28,35 @@ namespace Signaler.Controllers
         {
             this.setPageTitle("Index");
 
-            var items = this._serviceProvider.GetItems();
-
-            return View();
+            var items = this._serviceProvider.GetItems().Select(item => new assetViewModel()
+            {
+                Id = item.Id,
+                name=  item.name,
+                symbol = item.symbol
+            });
             
+            
+
+            return View(items);
+            
+        }
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(assetViewModel asset)
+        {
+            if(this.ModelState.IsValid)
+            {
+                await this._serviceProvider.InsertAsync(new assetServiceModel()
+                {
+                    name = asset.name,
+                    symbol = asset.symbol
+                });
+            }
+            return View();
         }
 
         [AllowAnonymous]

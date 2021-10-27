@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 //using System.Data.Entity;
 using System.Text;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
 namespace Signaler.Library.Data.Core
@@ -10,5 +11,6 @@ namespace Signaler.Library.Data.Core
     {
         DbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity;
         int SaveChanges();
+        Task<int> SaveChangesAsync(System.Threading.CancellationToken token);
     }
 }

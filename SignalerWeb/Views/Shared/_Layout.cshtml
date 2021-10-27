@@ -83,7 +83,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                        with font-awesome or any other icon font library -->
+    with font-awesome or any other icon font library -->
                         <li class="nav-item">
                             <a href="~/Home" class="nav-link">
                                 <i class="nav-icon fas fa-home"></i>
@@ -210,46 +210,99 @@
                         </li>
                         @if ((AuthorizationService.AuthorizeAsync(User, "Permissions.Users.Create")).Result.Succeeded)
                         {
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-users"></i>
-                    <p>
-                        User Management
-                        <i class="right fas fa-angle-left"></i>
-                    </p>
-                </a>
-                <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="~/Users" class="nav-link">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
                             <p>
-                                Users
+                                Asset & Markets Management
+                                <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="~/Assets" class="nav-link">
+                                    <p>
+                                        Assets
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="~/Markets" class="nav-link">
+                                    <p>
+                                        Markets
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="~/Timeslots" class="nav-link">
+                                    <p>
+                                        Time Slots
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="~/Exchanges" class="nav-link">
+                                    <p>
+                                        Exchanges
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="~/Exchangemarkets" class="nav-link">
+                                    <p>
+                                        Exchange Markets
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="~/Assetmarkets" class="nav-link">
+                                    <p>
+                                        Asset Markets
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
+
                     <li class="nav-item">
-                        <a href="~/Roles" class="nav-link">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-users"></i>
                             <p>
-                                Roles
+                                User Management
+                                <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="~/UserRoles" class="nav-link">
-                            <p>
-                                User roles
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="~/Permission" class="nav-link">
-                            <p>
-                                Permissions
-                            </p>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-}
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="~/Users" class="nav-link">
+                                    <p>
+                                        Users
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="~/Roles" class="nav-link">
+                                    <p>
+                                        Roles
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="~/UserRoles" class="nav-link">
+                                    <p>
+                                        User roles
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="~/Permission" class="nav-link">
+                                    <p>
+                                        Permissions
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>}
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
