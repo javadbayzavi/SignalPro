@@ -1,0 +1,40 @@
+﻿@model Signaler.Models.Assets.assetViewModel
+@Html.BeginForm()
+@{
+    @Html.AntiForgeryToken()
+    <div class="card">
+        <div class="card-header">
+            <span> Creating new asset</span>
+        </div>
+        <div class="card-body">
+            <div class="row m-2">
+                <div class="col">
+                    <span asp-validation-summary="All" class="text-danger"></span>
+                </div>
+            </div>            
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-12">
+                        <label asp-for="name">Name:</label>
+                        <input asp-for="name" class="form-control" />
+                        <span asp-validation-for="name" class="text-danger"></span>
+                    </div>
+                    <div class="col-12">
+                        <label asp-for="symbol">Symbol:</label>
+                        <input asp-for="symbol" class="form-control" />
+                        <span asp-validation-for="symbol" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="row m-2">
+                <div class="col-12">
+                    <div class="form-group">
+                        <input type="submit" value="Register" class="btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

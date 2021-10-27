@@ -24,7 +24,7 @@ namespace Signaler.Controllers
         }
 
         // GET: /<controller>/
-        public override IActionResult Index()
+        public IActionResult Index()
         {
             this.setPageTitle("Index");
 
@@ -48,6 +48,7 @@ namespace Signaler.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(assetViewModel asset)
         {
+            //TODO : Provide a created date vaue for input model
             if(this.ModelState.IsValid)
             {
                 await this._serviceProvider.InsertAsync(new assetServiceModel()
@@ -84,25 +85,20 @@ namespace Signaler.Controllers
             ViewBag.Title = _pageTitle;
         }
 
-        public override IActionResult View(int id)
+        public IActionResult View(int id)
         {
-            throw new NotImplementedException();
+            return View();
         }
 
-        public override IActionResult Delete(int id)
+        public IActionResult Delete(int id)
         {
             //this._serviceProvider.Delete();
             return View();
         }
 
-        public override IActionResult Create(assetServiceModel model)
+        public IActionResult Update(assetServiceModel model)
         {
-            throw new NotImplementedException();
-        }
-
-        public override IActionResult Update(assetServiceModel model)
-        {
-            throw new NotImplementedException();
+            return View();
         }
     }
 }

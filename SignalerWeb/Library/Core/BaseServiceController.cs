@@ -15,7 +15,8 @@ namespace Signaler.Library.Core
 {
 
     //Base controller take the operational business request (for core business parts of the application)
-    public abstract class BaseController<T_ServiceModel> : BaseController, ICRUDOperator<T_ServiceModel> where T_ServiceModel : ServiceModelBase
+    public abstract class BaseController<T_ServiceModel> : BaseController where T_ServiceModel : ServiceModelBase
+    //public abstract class BaseController<T_ServiceModel> : BaseController, ICRUDOperator<T_ServiceModel> where T_ServiceModel : ServiceModelBase
     {
 
         //protected readonly T_Service _serviceProvider;
@@ -25,11 +26,5 @@ namespace Signaler.Library.Core
         {
             this._serviceProvider = service;
         }
-
-        public virtual IActionResult Index() { return View(); }
-        public virtual IActionResult Create(T_ServiceModel model) { return View(); }
-        public virtual IActionResult Update(T_ServiceModel model) { return View(); }
-        public virtual IActionResult View(int id) { return View(); }
-        public virtual IActionResult Delete(int id) { return View(); }
     }
 }

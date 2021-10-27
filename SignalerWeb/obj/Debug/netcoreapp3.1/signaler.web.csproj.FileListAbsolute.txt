@@ -196,3 +196,5 @@ E:\SignalPro\SignalerWeb\bin\Debug\netcoreapp3.1\AutoMapper.dll
 E:\SignalPro\SignalerWeb\bin\Debug\netcoreapp3.1\AutoMapper.Collection.dll
 E:\SignalPro\SignalerWeb\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 E:\SignalPro\SignalerWeb\obj\Debug\netcoreapp3.1\Razor\Views\Assets\Index.cshtml.g.cs
+E:\SignalPro\SignalerWeb\bin\Debug\netcoreapp3.1\Telegram.Bot.dll
+E:\SignalPro\SignalerWeb\obj\Debug\netcoreapp3.1\Razor\Views\Assets\Create.cshtml.g.cs
