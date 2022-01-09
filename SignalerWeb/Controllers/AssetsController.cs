@@ -48,7 +48,6 @@ namespace Signaler.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(assetViewModel asset)
         {
-            //TODO : Provide a created date vaue for input model
             if(this.ModelState.IsValid)
             {
                 await this._serviceProvider.InsertAsync(new assetServiceModel()

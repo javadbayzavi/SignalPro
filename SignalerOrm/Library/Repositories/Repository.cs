@@ -120,6 +120,12 @@ namespace Signaler.Library.Data.Repositories
                 {
                     throw new ArgumentNullException("entity");
                 }
+                //TODO : Calculation must be done to set current tick as created date
+                entity.CreationDate = 0;
+
+                //TODO : Calculation must be done to set current tick as modified date
+                entity.ModificationDate = 0;
+
                 await this.Entities.AddAsync(entity);
                 await this._context.SaveChangesAsync(System.Threading.CancellationToken.None);
                 return entity;
@@ -149,6 +155,13 @@ namespace Signaler.Library.Data.Repositories
                 {
                     throw new ArgumentNullException("entity");
                 }
+
+                //TODO : Calculation must be done to set current tick as created date
+                entity.CreationDate = 0;
+
+                //TODO : Calculation must be done to set current tick as modified date
+                entity.ModificationDate = 0;
+
                 await this._context.SaveChangesAsync(System.Threading.CancellationToken.None);
                 return entity;
             }
